@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "PanelGraphics")(type "KiCad")(uri "${KIPRJMOD}/PanelGraphics.pretty")(options "")(descr ""))
+)

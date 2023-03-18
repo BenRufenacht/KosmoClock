@@ -1,0 +1,85 @@
+
+(rules PCB KosmoClockMain
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 2594)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.5)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.4)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    GND "unconnected-(A1-Pad1)" "unconnected-(A1-Pad2)" "unconnected-(A1-Pad3)" /START /STOP /DATA /LATCH
+    /CLOCK /ENCS /ENCA /ENCB /STARTLED /STOPLED "unconnected-(A1-Pad15)" "unconnected-(A1-Pad16)"
+    +3V3 "unconnected-(A1-Pad18)" "unconnected-(A1-Pad19)" "unconnected-(A1-Pad20)" "unconnected-(A1-Pad21)" "unconnected-(A1-Pad22)" /SDA /SCL
+    "unconnected-(A1-Pad25)" "unconnected-(A1-Pad26)" "unconnected-(A1-Pad27)" "unconnected-(A1-Pad28)" +5V +12V "-12V" "Net-(D1-Pad1)"
+    "Net-(D2-Pad1)" "Net-(D3-Pad2)" "Net-(D4-Pad2)" "Net-(D5-Pad2)" "Net-(D6-Pad2)" "Net-(D7-Pad2)" "Net-(D8-Pad2)" "Net-(D9-Pad2)"
+    "Net-(D10-Pad2)" "Net-(FB1-Pad1)" "Net-(FB2-Pad1)" "Net-(J2-PadT)" "Net-(J3-PadT)" "Net-(J4-PadT)" "Net-(J5-PadT)" "Net-(J6-PadT)"
+    "Net-(J7-PadT)" "Net-(J8-PadT)" "Net-(J9-PadT)" "Net-(J10-PadT)" "Net-(J11-PadT)" "Net-(R11-Pad1)" "Net-(R12-Pad1)" "Net-(R13-Pad1)"
+    "Net-(R10-Pad2)" "Net-(R11-Pad2)" "Net-(R12-Pad2)" "Net-(R13-Pad2)" "Net-(R14-Pad2)" "Net-(R23-Pad2)" "Net-(R24-Pad2)" "Net-(R25-Pad2)"
+    "Net-(R26-Pad2)" "Net-(R27-Pad2)" "Net-(R28-Pad2)" "Net-(R29-Pad2)" "Net-(R30-Pad2)" /OUT2 "unconnected-(U1-Pad9)" /OUT3
+    /OUT4 /OUT5 /OUT6 /OUT7 /OUT8 /OUT1
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
